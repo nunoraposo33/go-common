@@ -7,6 +7,7 @@ type SocketMessage struct {
 	MessageID         string `json:"messageId"`
 	Timestamp         string `json:"timestamp"`
 	Payload           string `json:"payload"`
+	Callback          string `json:"callback"`
 }
 
 // SyncMessage Messaged used to sync the plataform with ERP's
