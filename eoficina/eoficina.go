@@ -1,6 +1,6 @@
 package eoficina
 
-import "github.com/nunoraposo33/go-eclients-common/eclients"
+import "github.com/nunoraposo33/go-common/eclients"
 
 // Repair Struct - used for creating new repairs
 type Repair struct {
