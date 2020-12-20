@@ -5,7 +5,6 @@ import (
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
-	"log"
 	"os"
 	"path/filepath"
 	"strconv"
@@ -135,11 +134,34 @@ func ParseConfig(model interface{}) error {
 	return LoadJSONFromFile(path, model)
 }
 
+// FolderOrFileExists - Check if folder and file exists
+func FolderOrFileExists(path string) bool {
+	if _, err := os.Stat(path); os.IsNotExist(err) {
+		return false
+	}
+
+	return true
+}
+
 // LogError logs a error inside a folder "logs" in the same location as the executable
 func LogError(text string) error {
-	path := "logs/" + time.Now().UTC().Format("20060102150405") + ".txt"
+	if !FolderOrFileExists("./logs") {
+		//Create a folder/directory at a full qualified path
+		err := os.Mkdir("logs", 0755)
+		if err != nil {
+			fmt.Println(err.Error())
+			return err
+		}
+	}
 
-	f, err := os.OpenFile(path, os.O_CREATE|os.O_WRONLY, 0644)
+	path := "logs/" + "logs-" + time.Now().UTC().Format("2006-01-02") + ".txt"
+
+	f, err := os.OpenFile(path, os.O_APPEND|os.O_WRONLY|os.O_CREATE, 0600)
+	if err != nil {
+		fmt.Println(err.Error())
+		return err
+	}
+
 	if err != nil {
 		fmt.Println(err.Error())
 		return err
@@ -147,8 +169,9 @@ func LogError(text string) error {
 
 	defer f.Close()
 
-	if _, err := f.WriteString(text); err != nil {
-		log.Println(err)
+	if _, err := f.WriteString(text + "\n"); err != nil {
+		fmt.Println(err.Error())
+		return err
 	}
 
 	return nil
