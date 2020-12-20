@@ -61,6 +61,11 @@ func StringToInt(str string, defaultValue int) int {
 	return result
 }
 
+// IntToString Converts Int to String (base 10)
+func IntToString(value int) string {
+	return strconv.FormatInt(int64(value), 10)
+}
+
 // ConvertJSONToStruct converts a json string to a struct
 func ConvertJSONToStruct(text []byte, model interface{}) error {
 	err := json.Unmarshal(text, &model)
