@@ -169,7 +169,7 @@ func LogError(text string) error {
 
 	defer f.Close()
 
-	if _, err := f.WriteString(text + "\n"); err != nil {
+	if _, err := f.WriteString(time.Now().Format(time.RFC3339) + " - " + text + "\n"); err != nil {
 		fmt.Println(err.Error())
 		return err
 	}
