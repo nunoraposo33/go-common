@@ -8,6 +8,7 @@ type SocketMessage struct {
 	Timestamp         string `json:"timestamp"`
 	Payload           string `json:"payload"`
 	Callback          string `json:"callback"`
+	Status            int32  `json:"status"`
 }
 
 // SyncMessage Messaged used to sync the plataform with ERP's
@@ -19,9 +20,4 @@ type SyncMessage struct {
 	ClientID  string `json:"client_id"`
 	Processed bool   `json:"processed"`
 	Payload   string `json:"payload"`
-}
-
-type SocketResponsePayload struct {
-	Status int
-	Data   string
 }
