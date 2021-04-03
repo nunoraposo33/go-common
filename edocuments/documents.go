@@ -11,7 +11,7 @@ type Document struct {
 	Serie            string  `json:"serie"`
 	Number           string  `json:"number"`
 	UserId           int     `json:"userId"`
-	Observations     string  `json:"observations"`
+	Observations     *string `json:"observations"`
 	ClientId         string  `json:"clientId"`
 	ClientName       string  `json:"clientName"`
 	ClientAddress    string  `json:"clientAddress"`
