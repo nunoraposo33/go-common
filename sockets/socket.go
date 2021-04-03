@@ -20,3 +20,8 @@ type SyncMessage struct {
 	Processed bool   `json:"processed"`
 	Payload   string `json:"payload"`
 }
+
+type SocketResponsePayload struct {
+	Status int
+	Data   string
+}
