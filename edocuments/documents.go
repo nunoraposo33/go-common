@@ -32,6 +32,10 @@ type Document struct {
 	}
 }
 
+type ItemFetchQuery struct {
+	Barcode string `json:"barcode"`
+}
+
 type Item struct {
 	Ref            string
 	Stock          float32
