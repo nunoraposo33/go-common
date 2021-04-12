@@ -42,9 +42,12 @@ type Item struct {
 	Description    string
 	Barcode        string
 	AlternativeRef string
-	Attributes     []struct {
-		Ref         string
-		Description string
-		Stock       float32
-	}
+	Attributes     []ItemAttribute
+}
+
+type ItemAttribute struct {
+	AtrributeId      int
+	AttributeValueId int
+	Name             string
+	AttributeName    string
 }
