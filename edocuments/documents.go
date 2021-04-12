@@ -31,3 +31,16 @@ type Document struct {
 		TaxValue        float32 `json:"taxValue"`
 	}
 }
+
+type Item struct {
+	Ref            string
+	Stock          float32
+	Description    string
+	Barcode        string
+	AlternativeRef string
+	Attributes     []struct {
+		Ref         string
+		Description string
+		Stock       float32
+	}
+}
