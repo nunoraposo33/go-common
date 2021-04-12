@@ -37,17 +37,18 @@ type ItemFetchQuery struct {
 }
 
 type Item struct {
-	Ref            string
-	Stock          float32
-	Description    string
-	Barcode        string
-	AlternativeRef string
-	Attributes     []ItemAttribute
+	Ref            string          `json:"ref"`
+	Stock          float32         `json:"stock"`
+	Description    string          `json:"description"`
+	Barcode        string          `json:"barcode"`
+	AlternativeRef string          `json:"alternativeRef"`
+	ControlStock   bool            `json:"controlStock"`
+	Attributes     []ItemAttribute `json:"attributes"`
 }
 
 type ItemAttribute struct {
-	AtrributeId      int
-	AttributeValueId int
-	Name             string
-	AttributeName    string
+	AtrributeId      int    `json:"atrributeId"`
+	AttributeValueId int    `json:"attributeValueId"`
+	Name             string `json:"name"`
+	AttributeName    string `json:"attributeName"`
 }
