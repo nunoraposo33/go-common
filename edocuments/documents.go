@@ -44,6 +44,7 @@ type Item struct {
 	AlternativeRef string          `json:"alternativeRef"`
 	ControlStock   bool            `json:"controlStock"`
 	Attributes     []ItemAttribute `json:"attributes"`
+	AskQuantity    bool            `json:"askQuantity"`
 }
 
 type ItemAttribute struct {
