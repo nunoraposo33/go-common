@@ -1,5 +1,7 @@
 package edocuments
 
+import "database/sql"
+
 type DocumentFetchQuery struct {
 	Type   string `json:"type"`
 	Series string `json:"series"`
@@ -36,7 +38,7 @@ type Item struct {
 	Ref            string          `json:"ref"`
 	Stock          float32         `json:"stock"`
 	Description    string          `json:"description"`
-	Barcode        *string         `json:"barcode"`
+	Barcode        sql.NullString  `json:"barcode"`
 	AlternativeRef string          `json:"alternativeRef"`
 	ControlStock   bool            `json:"controlStock"`
 	Attributes     []ItemAttribute `json:"attributes"`
