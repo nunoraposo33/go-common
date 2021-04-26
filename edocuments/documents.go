@@ -32,15 +32,11 @@ type Document struct {
 	}
 }
 
-type ItemFetchQuery struct {
-	Barcode string `json:"barcode"`
-}
-
 type Item struct {
 	Ref            string          `json:"ref"`
 	Stock          float32         `json:"stock"`
 	Description    string          `json:"description"`
-	Barcode        string          `json:"barcode"`
+	Barcode        *string         `json:"barcode"`
 	AlternativeRef string          `json:"alternativeRef"`
 	ControlStock   bool            `json:"controlStock"`
 	Attributes     []ItemAttribute `json:"attributes"`
